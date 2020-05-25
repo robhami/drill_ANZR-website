@@ -5,135 +5,428 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		if (typeof jQuery == 'undefined') {  
+			console.log("jQuery is not loaded");  
+		    //or
+		    alert("jQuery is loaded");  
+		} else {
+			console.log("jQuery is not loaded");
+			alert("jQuery is not loaded"); 
+		}
+		
+		$(document).ready(function(){
+			console.log("hello");	
+			$("#mainNav").click (function() {
+				$("h4").hide("slow", function(){
+					console.log ("hi hidden");						
+
+				});
+			});
+
+		});
+
+</script>
 
 
-
-	<title>Units converter</title>
+	<title>drill ANZR</title>
 </head>
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body data-spy="scroll" data-target=".navbar" data-offset="75">
+	<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light" id="mainNav" onresize="navFunc()">
 		<a class="navbar-brand" href="#">
 			<img src="images\logo_final.png" width="50" height="50" alt="" loading="lazy">
 		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" afterclick="navFunc()" id="tog">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" >
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Units Converter</a>
-				</li>
+				<!-- <ul class=" nav nav-pills"> -->
+					<li class="nav-item">
+						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-pills">
+						<a class="nav-link"  href="#aboutUs">About Us</a>
+					</li>
+
 				
+					<li class="nav-pills">
+						<a class="nav-link"  href="#products">Products</a>
+					</li>
+
+
+
+					
+					<li class="nav-pills">
+						<a class="nav-link"  href="#services">Services</a>
+					</li>
+
+
+
+
+
+					<li class="nav-item">
+						<a class="nav-link"  href="#signUp">Log In/Register</a>
+					</li>
+				<!-- </ul> -->
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" id="search-Input" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" id="search-Btn" type="submit">Search</button>
 			</form>
 		</div>
 	</nav>
 
-	<div class="container">
-		
+	<div class="container" id="container-Top">
+
+		<div class="row">
+			<div class ="col-sm-12 col-md-6 col-lg-4">
+
 				<div class="card">
 
-					<div class="card text-center">
+					<div class="card-header">
 
-						<div class="card-header">
-							<h2>Units Converter</h2>
-								<dt> Select Units Type: </dt>
-							<ul class="nav nav-pills" id="unitsTab">
-								
-								<li class="nav-item" id="massNav" >
-									<a class="nav-link" href="#"  id="mass" data-toggle="tab" onclick="tab(this.id)">Mass</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#" id="length" data-toggle="tab" onclick="tab(this.id)">Length</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#" id="density" data-toggle="tab"onclick="tab(this.id)">Density</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#" id="flow" data-toggle="tab" onclick="tab(this.id)">Flow</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#" id="pressure" data-toggle="tab" onclick="tab(this.id)">Pressure</a>
-								</li>
+						<!--<img class="card-img-top" src="images/rig_guy.jpg" alt="Card image cap" > !-->
 
-								<li class="nav-item">
-									<a class="nav-link" href="#" id="torque" data-toggle="tab" onclick="tab(this.id)">Torque</a>
-								</li>
-
-								<li class="nav-item">
-									<a class="nav-link" href="#" id="area" data-toggle="tab" onclick="tab(this.id)">Area</a>
-								</li>
-
-							</ul>
-						</div>
+						<h3 class="card-title" <span><i class="fa fa-users" aria-hidden="true"></i> </span>What we do?</h3>
+						<p class="card-text">dril-ANZR provides tools to help individuals and companies working in the drilling sector of the oil and gas business. Popular applications:</p>
 					</div>
-
 					<div class="card-body">
-						<dt> Select Units To Convert: </dt>
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<a class="nav-link" href="#unitsConverter">Units Converter<a></li>
+									<li class="nav-item">
+										<a class="nav-link" href="#">Bending Stress Ratio Calculator</a></li>
+										<li class="nav-item">
+											<a class="nav-link" href="#">Hydraulics Simulator</a></li>
+											<li class="nav-item">
+												<a class="nav-link" href="#">BHA Mechanical Simulator</a></li>
+											</ul>
 
-						<div class="input-group mb-3">
 
-							<div class="dropdown" >
-								<button class="btn btn-secondary dropdown-toggle" type="button" id="unitsFrom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Units From</button>
+										</div>
 
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="unitsFromDD">
-									<option class="dropdown-item" href="#">Select Units Type</option>	
+
+									</div>
+								</div>
+								<div class ="col-sm-12 col-md-6 col-lg-4">
+									<div class="card">
+
+										<!-- <div class="card text-center"> -->
+
+											<div class="card-header">
+												<h3 class="card-title" <span><i class="fa fa-calculator" aria-hidden="true"></i> </span>Units Converter</h3>
+
+												<dt> Select Units Type: </dt>
+												<ul class="nav nav-pills" id="unitsTab">
+
+													<li class="nav-item" id="massNav" >
+														<a class="nav-link" href="#"  id="mass" data-toggle="tab" onclick="tab(this.id)">Mass</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" href="#" id="length" data-toggle="tab" onclick="tab(this.id)">Length</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" href="#" id="density" data-toggle="tab"onclick="tab(this.id)">Density</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" href="#" id="flow" data-toggle="tab" onclick="tab(this.id)">Flow</a>
+													</li>
+													<li class="nav-item">
+														<a class="nav-link" href="#" id="pressure" data-toggle="tab" onclick="tab(this.id)">Pressure</a>
+													</li>
+
+													<li class="nav-item">
+														<a class="nav-link" href="#" id="torque" data-toggle="tab" onclick="tab(this.id)">Torque</a>
+													</li>
+
+													<li class="nav-item">
+														<a class="nav-link" href="#" id="area" data-toggle="tab" onclick="tab(this.id)">Area</a>
+													</li>
+
+												</ul>
+											</div>
+											<!-- </div> -->
+
+											<div class="card-body">
+												<dt> Select Units To Convert: </dt>
+
+												<div class="input-group mb-3">
+
+													<div class="dropdown" >
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="unitsFrom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Units From</button>
+
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="unitsFromDD">
+															<option class="dropdown-item" id="unitsFromItem" href="#">Select Units Type</option>	
+														</div>
+													</div>
+
+
+													<div class="input-group-append">
+														<input type="text" class="form-control" placeholder="Value from" aria-label="Recipient's username" aria-describedby="button-addon2" id="userInput" maxlength="12">
+
+													</div>
+
+
+												</div>
+
+												<div class="input-group mb-3">
+
+													<div class="dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="unitsTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Units To</button>
+
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="unitsToDD">
+															<option class="dropdown-item" id="unitsToItem" href="#">Select Units Type</option>		
+														</div>
+													</div>
+
+													<div class="input-group-append">
+
+														<input type="text" class="form-control" placeholder="Result" aria-label="Recipient's username" aria-describedby="button-addon2" maxlength="11" id="userOutput" disabled ></input>	
+
+													</div>	
+
+
+												</div>
+
+												<div class="input-group mb-3">
+
+													<button class="btn btn-outline-success" type="button" id="button-addon2" onclick="formSubmit()">Convert</button>
+
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+									<div class ="col-sm-12 col-md-6 col-lg-4">
+										<div class="card">
+
+											<div class="card-header">
+												<h3 class="card-title" <span><i class="fa fa-pen" aria-hidden="true"></i> </span>Sign Up/Log In</h3>
+												<img class="card-img-top" id="sunrise" src="images/rig_sunrise_crop.jpg" alt="Card image cap" >
+
+											</div>		
+											<div class="card-body">	 
+
+												<p class="card-text"></p>
+												<div class="form-group">
+													<label class="sr-only" for="exampleInputAmount">email@email.com</label>
+													<div class="input-group mb-3">
+														<div class="input-group-addon">@</div>
+														<input type="text" class="form-control" id="email" placeholder="email@email.com">
+													</div>
+
+												</div>
+												<a href="#" class="btn btn-primary">Sign Up</a>
+
+											</div>
+
+
+
+
+
+
+
+										</div>
+									</div>
+
+
+
 								</div>
 							</div>
+						</div>
 
 
-							<div class="input-group-append">
-								<input type="text" class="form-control" placeholder="Value from" aria-label="Recipient's username" aria-describedby="button-addon2" id="userInput" maxlength="12">
 
-							</div>
+						<div class="container" id="aboutUs">
+
+							<h4 class="pad">About us</h4>
+							<p> dril-ANZR (Drilling answers) provides world-class software and services to the drilling side of the Oil & Gas industry. 
+
+								Our consultancy has broad and deep experience on the drilling system’s components. We have +20 years experience providing product design, software development and optimization implementation at major service companies. 
+							</p>
+							<p>We have several software applications for drilling design and optimization. These can also developed to specific client needs. 
+
+								We also specialise in drilling optimization, technical support on a variety of drilling/remedial products, service and product quality investigations. 
+
+
+							</p>
+
+						</div>
+
+						<div class="container" id="products">
+
+							<h4 class="pad" >Products</h4>
+							<h5 class="pad" id="softwareApps">Software</h5>
+							<p>Drill-ANZR has a suite of software to enhance the performance of drilling systems. These include: 
+							</p>
+							<ol>
+								<li>
+									Customizable drilling database
+								</li>
+								<li>
+									Jar Placement program
+								</li>
+								<li>
+									BHA beam analysis
+								</li>
+								<li>
+									Web Development service
+								</li>
+								<li>
+									Optimization system
+								</li>
+							</ol>
+
+							<h5 class="pad">Calculators</h5>
+							<p>Free to use calculators are available via our service hub. These include: 
+							</p>
+							<ol>
+								<li>
+									Hydraulics calculator
+								</li>
+								<li>
+									Bending Stress Ratio (BSR) calculator
+								</li>
+								<li>
+									Make-up torques calculator
+								</li>
+								<li>
+									Depth of cut calculator
+								</li>
+								<li>
+									Units Converter
+								</li>
+
+							</ol>
+
+							<h5> Product Expertise</h5>
+							<p>Our consultancy has broad and deep experience on the drilling system’s components. We have +20 years experience providing product design, development and optimization implementation at major service companies. 
+							</p>
+							<p>Key products include but are not limited to: 
+							</p>
+							<ol>
+								<li>
+									Bits
+								</li>
+								<li>
+									Under-reamers
+								</li>
+								<li>
+									Whip-stocks
+								</li>
+								<li>
+									Jars 
+								</li>
+								<li>
+									Tubulars 
+								</li>
+								<li>
+									Drive Systems (including directional)
+								</li>
+								<li>
+									Data Acquisition (Surface and Downhole)
+								</li>
+
+							</ol>
+
+
+
+
 
 
 						</div>
 
-						<div class="input-group mb-3">
+						<div class="container" id="services">
 
-							<div class="dropdown">
-								<button class="btn btn-secondary dropdown-toggle" type="button" id="unitsTo" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Units To</button>
+							<h4 class="pad">Services</h4>
+							<h5>Drilling Optimization</h5>
+							<p>We provide drilling-data analysis and optimization roadmaps that identify opportunities to reduce Non-Productive-Time (NPT) and improve Rate of Penetration (ROP). 
+							</p>
+							<p>Optimization is based on:
+							</p>
+							<ol>
+								<li>Identifying where ROP can be improved by assessing and addressing mechanical and hydraulic inefficiencies within the drilling system.
+								</li>
+								<li>Identifying where rig operations can be safely streamlined in terms of duration and personnel/equipment efficiency.
+								</li>
+							</ol>
+							<p>These roadmaps are supported by an industry-leading analytical process with visual outputs of the data analysis to educate and guide users on where efficiencies can be achieved. 
+							</p>
 
-								<div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="unitsToDD">
-									<option class="dropdown-item" href="#">Select Units Type</option>		
-								</div>
-							</div>
-
-							<div class="input-group-append">
-
-								<input type="text" class="form-control" placeholder="Result" aria-label="Recipient's username" aria-describedby="button-addon2" maxlength="11" id="userOutput" disabled ></input>	
-
-							</div>	
-
-
+							<p>Complimentary services include:
+							</p>
+							<ol>
+								<li>
+									Log interpretation (Geophysical and Vibrational data)
+								</li>
+								<li>
+									Data plotting and analysis
+								</li>
+								<li>
+									Dull product evaluation and recommendations
+								</li>
+								<li>
+									Pre-job system optimization (Hydraulics, Mechanical Efficiencies)
+								</li>
+							</ol>
 						</div>
 
-						<div class="input-group mb-3">
-							
-								<button class="btn btn-outline-success" type="button" id="button-addon2" onclick="formSubmit()">Convert</button>
-								
-							</div>
-						</div>
-
-					</div>
-
-
-		</div>
 
 
 
-	</body>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="script.js"></script>
-	</html>
+
+
+
+
+				</div>
+				<div class="container" id="appDownload">
+
+					<div class="textContainer">  
+						<h1>Our Apps</h1>
+						<p>Download Our Innovative Apps</p>
+						<p>Tools to allow mobile, flexible and accurate analysis of your services.</p>
+						<p>
+							<img src="images/download.jpg" id="appButton" href="#" role="button">
+							<img src="images/android.png" id="appButton" href="#" role="button">
+						</p>
+					</div>	  
+
+				</div>
+			</div>
+
+
+
+
+
+			<div class="container" id="base">
+				<br></br>
+			</div>
+			<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+			<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+			
+			<!-- <script>
+			$(document).ready(function(){
+				console.log("hello");	
+				$("#mainNav").click (function() {
+					$("h4").hide("slow", function(){
+						console.log ("hi hidden");						
+
+					});
+				});
+				
+			});
+
+			</script> -->
+			
+
+
+		</body>
+		
+		</html>
 
