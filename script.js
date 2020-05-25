@@ -1,4 +1,15 @@
 
+
+function navFunc() {
+	console.log(document.getElementById('mainNav').offsetHeight);
+}
+
+
+
+
+
+
+
 function tab (tabSelect) {
 
 	tabConfig(tabSelect);
