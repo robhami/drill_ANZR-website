@@ -119,19 +119,20 @@ body {
 .card {
 
 	height: 350px;
-	margin-top: 25px;
+	min-width: 300px ;
+	/*margin-top: 25px;*/
 }
 
 #container-Top {
-	padding-top:75px;
-	
+	/*padding-top:80px;*/
+	/*margin-top:-80px;*/
 
 }
 
 #aboutUs {
 	padding-top:75px;
-	/*margin-top:-75px;
-*/
+	margin-top:-75px;
+
 }
 
 #products {
@@ -151,3 +152,36 @@ body {
     background-color: #007bff;
 }
 
+/*@media (max-width:768px) {
+    .main {
+        margin-top:0;
+    }
+    .navbar-fixed-top {
+        position:static;
+    }
+} */
+
+
+.height {
+
+	height: 300px;
+
+}
+
+.container.height {
+ height: 300px;
+ display: block;
+/* margin-bottom:80px;*/
+}
+
+
+
+.marginTop {
+
+	margin-top: :0px;
+}
+
+#dummyContainer {
+
+	height: 80px;
+}
